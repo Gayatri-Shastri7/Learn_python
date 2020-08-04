@@ -1,0 +1,262 @@
+:root{
+    --red:#ff5252;
+    --blue:#007bff;
+    --orange:#ffa505;
+    --violet:#7952b3;
+    --dark-black-blue:#262c3a;
+    --green:#009c73;
+    --gray:#898989;
+    --fav:#007959;
+    --black:#111111;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #19202d;
+}
+
+h1,h2,h3,h4,h5,h6,p,ul{
+    margin: 0px;
+    padding: 0;
+    font-family:'Open Sans', 'Roboto',  Calibri;
+}
+
+a, a:focus, a:hover{
+    color: #000000;
+    text-decoration: none;
+}
+
+#fixed-float{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #475879;
+    position: fixed;
+    bottom: 85px;
+    right: 30px;
+    text-align: center;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+    transition: all 0.33s ease-in-out;
+    display: none;
+}
+
+#fixed-float:hover{
+    background-color: rgb(41, 53, 74);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+#fixed-float a{
+    color:#fafafa;
+    font-size: 14px;
+    display: block;
+    padding: 18px 0px;
+}
+
+#navbar{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color: #333948;
+    float:left;
+}
+
+#navbar ul::-webkit-scrollbar {
+    width: 0.6em;
+}
+ 
+#navbar ul::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+#navbar ul{
+    margin: 0;
+    padding: 0;
+    height: 89%;
+    list-style-type: none;
+    overflow:  auto;
+}
+
+#navbar a{
+    display: block;
+    padding: 15px 20px;
+    color: #aaaaaa;
+    transition:all 0.33s ease-in-out;
+    outline:  none;
+}
+
+#navbar a:hover:not(.active){
+    background-color: rgba(25, 32, 45, 0.4) !important;
+    color: #eee;
+}
+
+#navbar a:focus{
+    box-shadow: inset 6px 0px 0 0 rgb(124, 134, 154);
+    color: #fff;
+    background-color: rgba(25, 32, 45, 0.8);
+}
+
+#main-doc{
+   /* padding-top:60px; */
+   margin-left:300px;
+}
+
+.wrapper{
+    padding: 40px;
+    padding-top: 0;
+    box-sizing: border-box;
+    color: #aaaaaa;
+}
+
+.header{
+    font-size: 28px;
+    display: inline-block;
+    padding: 30px 0px 20px 0px;
+    font-family: 'Open Sans', 'Roboto', Calibri;
+    box-sizing: border-box;
+    padding-left: 5px;
+}
+
+p{
+    font-size: 15px;
+    margin: 10px 0px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+.link, .link:hover, .link:focus{
+    color: #5e88b5;
+}
+
+.code1{
+    background-color:#3f404c;
+    padding: 1px 6px;
+    border-radius:2px;
+    white-space:  nowrap;
+}
+
+.code2{
+    display: block;
+    white-space: pre;
+    background-color: #2e3442;
+    border-radius: 4px;
+    line-height: 1.6;
+    font-size: 15px;
+    font-family: consolas;
+    margin: 20px 0;
+}
+
+.items{
+    margin: 0px 0px 0px 35px;
+    font-size: 14px;
+    line-height: 2;
+}
+
+footer{
+    padding:20px;
+    background: #151b25;
+    text-align:center;
+}
+
+footer p{
+    font-size: 12px;
+    font-weight: 600;
+    color: #8a8a8a;
+}
+
+footer a{
+    text-decoration: none;
+    color: #ccc;
+}
+
+footer a:hover{
+    text-decoration: underline;
+    color: #fbfbfb;
+}
+
+.extra{
+    padding: 20px 0px 20px 10px;
+    font-size: 24px;
+    display:  block;
+    color: #bbbbbb;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.4);
+    cursor:  pointer;
+}
+
+@media screen and (max-width:1000px){
+    .code2{
+        font-size:14px;
+    }
+}
+
+@media screen and (max-width:900px){
+    .code2{
+        font-size:13px;
+    }
+    .wrapper{
+        padding-left:20px;
+        padding-right:20px;
+    }
+}
+
+@media screen and (max-width:850px){
+    .code2{
+        font-size:12px;
+    }
+}
+
+@media screen and (max-width:800px){
+    .none{
+        display:none;
+    }
+    #navbar{
+        width:100%;
+        position:unset;
+        box-shadow:0px 2px 5px rgba(0,0,0,0.4);
+    }
+    #navbar ul{
+        height:210px;
+    }
+    #navbar a,.extra{
+        padding-left:25px !important;
+    }
+    #main-doc{
+        margin-left:0;   
+    }
+    .code2{
+        font-size:15px;
+    }
+
+    
+}
+
+@media screen and (max-width:700px){
+    .wrapper{
+        padding:15px;
+    }
+}
+
+@media screen and (max-width:650px){
+    .code2{
+        font-size:13px;
+    }
+}
+
+@media screen and (max-width:510px){
+    .wrapper{
+        padding:0px;
+    }
+    .code2{
+        white-space:pre-line;
+        padding:0 0 20px 15px;
+    }
+    
+    #fixed-float{
+        right:15px;
+        bottom:50px;
+    }
+    .extra, #navbar a{
+        padding-left:10px !important;
+    }
+}

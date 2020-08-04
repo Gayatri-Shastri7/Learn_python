@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn python</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    
+        <nav id="navbar">
+            <header class="header extra">
+                Python Documentation
+            </header>
+            <ul>
+                <li><a class="nav-link" href="#Introduction_to_Python">Introduction to Python</a></li>
+                <li><a class="nav-link" href="#Numbers_in_Python">Numbers in Python</a></li>
+                <li><a class="nav-link" href="#Strings_in_Python">Strings in Python</a></li>
+                <li><a class="nav-link" href="#if_Statements">if Statements</a></li>
+                <li><a class="nav-link" href="#for_Statements">for Statements</a></li>
+                <li><a class="nav-link" href="#The_range_Function">The range Function</a></li>
+                <li><a class="nav-link" href="#break_and_continue_Statements">break and continue Statements</a></li>
+                <li><a class="nav-link" href="#Defining_Functions">Defining Functions</a></li>
+                <li><a class="nav-link" href="#Default_Argument_Values">Default Argument Values</a></li>
+                <li><a class="nav-link" href="#Keyword_Arguments">Keyword Arguments</a></li>
+                <li><a class="nav-link" href="#Arbitrary_Argument_Lists">Arbitrary Argument Lists</a></li>
+                <li><a class="nav-link" href="#Lambda_Expressions">Lambda Expressions</a></li>
+                <li><a class="nav-link" href="#Documentation_Strings">Documentation Strings</a></li>
+                <li><a class="nav-link" href="#Intermezzo_Coding_Style">Intermezzo Coding Style</a></li>
+                <li><a class="nav-link" href="#Using_Lists_as_Stacks">Using Lists as Stacks</a></li>
+                <li><a class="nav-link" href="#Using_Lists_as_Queues">Using Lists as Queues</a></li>
+                <li><a class="nav-link" href="#References">References</a></li>
+            </ul>
+        </nav>
+    
+        <main id="main-doc">
+            <div class="wrapper">
+    
+                <section class="main-section" id="Introduction_to_Python">
+                    <header class="header">
+                        Introduction to Python
+                    </header>
+                    <p>
+                            Python is an easy to learn, powerful programming language. 
+                            It has efficient high-level data structures and a simple but effective approach to object-oriented programming. 
+                            Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for 
+                            scripting and rapid application development in many areas on most platforms.
+                    </p>
+                    <p>
+                        The Python interpreter and the extensive standard library are freely available in source or binary form for 
+                        all major platforms from the Python Web site, <a class="link" href="https://www.python.org/">https://www.python.org/</a>, and may be freely distributed. 
+                        The same site also contains distributions of and pointers to many free third party Python modules, programs and tools, and additional documentation.
+                    </p>
+                    <p>
+                            The Python interpreter is easily extended with new functions and data types implemented in
+                             <code class="code1">C</code> or <code class="code1">C++</code> (or other languages callable from <code class="code1">C</code>).
+                             Python is also suitable as an extension language for customizable applications.
+                    </p>
+                    <p>
+                            This tutorial introduces the reader informally to the basic concepts and features of the Python language and system.
+                             It helps to have a Python interpreter handy for hands-on experience, but all examples are self-contained,
+                              so the tutorial can be read off-line as well.
+                    </p>
+                </section>
+    
+                <section class="main-section" id="Numbers_in_Python">
+                    <header class="header">
+                        Numbers in Python
+                    </header>
+    
+                    <p>
+                        The interpreter acts as a simple calculator: you can type an expression at it and it will write the value.
+                        Expression syntax is straightforward: the operators <code class="code1">+</code>, 
+                        <code class="code1">-</code>, 
+                        <code class="code1">*</code> and
+                        <code class="code1">/</code> work just like in most other languages (for example, <code class="code1">Pascal</code> or <code class="code1">C</code>);
+                        parentheses <code class="code1">()</code> can be used for grouping. For example:  
+                        
+                        <code class="code2">
+        >>> 2 + 2
+        4
+        >>> 50 - 5*6
+        20
+        >>> (50 - 5*6) / 4
+        5.0
+        >>> 8 / 5  
+        1.6 # division always returns a floating point number
+                        </code>
+    
+                    </p>
+    
+    
+                    <p>
+                        The integer numbers (e.g. 2, 4, 20) have type <code class="code1">int</code>, the ones with a fractional part (e.g. 5.0, 1.6) have type <code class="code1">float</code>. We will see more about numeric types later in the tutorial.
+                        <br/>
+                        <br/>
+                        Division <code class="code1">/</code> always returns a float. To do <code class="code1">floor</code> division and get an integer result (discarding any fractional result) you can use the <code class="code1">//</code> operator; to calculate the remainder you can use <code class="code1">%</code>:
+    
+                        <code class="code2">
+        >>> 17 / 3  # classic division returns a float
+        5.666666666666667
+        >>>
+        >>> 17 // 3  
+        5 # floor division discards the fractional part
+        >>> 17 % 3  
+        2 # the % operator returns the remainder of the division
+        >>> 5 * 3 + 2  # result * divisor + remainder
+        17
+                        </code>
+    
+                    </p>
+    
+                    <p>
+                        With Python, it is possible to use the <code class="code1">**</code> operator to calculate powers:
+                        
+                        <code class="code2">
+        >>> 5 ** 2  # 5 squared
+        25
+        >>> 2 ** 7  # 2 to the power of 7
+        128
+                        </code>
+                    </p>
+                </section>
+    
+                <section class="main-section" id="Strings_in_Python">
+                    <header class="header">Strings in Python</header>
+                    <p>
+                        Besides numbers, Python can also manipulate strings, which can be expressed in several ways.
+                         They can be enclosed in single quotes <code class="code1">'...'</code> or double quotes <code class="code1">"..."</code>
+                          with the same result. <code class="code1">\</code> can be used to escape quotes:
+                        
+                        <code class="code2">
+        >>> 'spam eggs'  # single quotes
+        'spam eggs'
+        >>> 'doesn\'t'  # use \' to escape the single quote...
+        "doesn't"
+        >>> "doesn't"  # ...or use double quotes instead
+        "doesn't"
+        >>> '"Yes," they said.'
+        '"Yes," they said.'
+        >>> "\"Yes,\" they said."
+        '"Yes," they said.'
+        >>> '"Isn\'t," they said.'
+        '"Isn\'t," they said.'
+                        </code>
+                    </p>
+    
+                    <p>
+                            Strings can be indexed (subscripted), with the first character having index <code class="code1">0</code>. 
+                            There is no separate character type; a character is simply a string of size one:
+                        <code class="code2">
+        >>> word = 'Python'
+        >>> word[0]  # character in position 0
+        'P'
+        >>> word[5]  # character in position 5
+        'n'
+                        </code>
+                    </p>
+                </section>
+    
+                <section class="main-section" id="if_Statements">
+                    <header class="header"><code class="code1">if</code> Statements</header>
+                    <p>
+                        Perhaps the most well-known statement type is the <code class="code1">if</code> statement. For example:
+    
+                        <code class="code2">
+        >>> x = int(input("Please enter an integer: "))
+        Please enter an integer: 42
+        >>> if x < 0:
+        ...     x = 0
+        ...     print('Negative changed to zero')
+        ... elif x == 0:
+        ...     print('Zero')
+        ... elif x == 1:
+        ...     print('Single')
+        ... else:
+        ...     print('More')
+        ...
+        More
+                        </code>
+    
+                        There can be zero or more <code class="code1">elif</code> parts, and the <code class="code1">else</code> part is optional. The keyword <code class="code1">elif</code> is short for
+                         <code class="code1">else if</code>, and is useful to avoid excessive indentation.
+                    </p>
+                </section>
+    
+                <section class="main-section" id="for_Statements">
+                    <header class="header">
+                        <code class="code1">for</code> Statements
+                    </header>
+    
+                    <p>
+                        The <code class="code1">for</code> statement in Python differs a bit from what you may be used to in <code class="code1">C</code> or <code class="code1">Pascal</code>. 
+                        Rather than always iterating over an arithmetic progression of numbers (like in <code class="code1">Pascal</code>), 
+                        or giving the user the ability to define both the iteration step and halting condition (as <code class="code1">C</code>), 
+                        Python’s for statement iterates over the items of any sequence (a <code class="code1">list</code> or a <code class="code1">string</code>),
+                         in the order that they appear in the sequence. For example (no pun intended):
+    
+                        <code class="code2">
+        >>> # Measure some strings:
+        ... words = ['cat', 'window', 'defenestrate']
+        >>> for w in words:
+        ...     print(w, len(w))
+        ...
+        cat 3
+        window 6
+        defenestrate 12
+                        </code>
+    
+                        If you need to modify the sequence you are iterating over while inside the loop (for example to duplicate selected items), it is recommended that you first make a copy. Iterating over a sequence does not implicitly make a copy. 
+                        The slice notation makes this especially convenient:
+    
+                        <code class="code2">
+        >>> # Loop over a slice copy of the entire list.
+        >>> for w in words[:]:
+        ...     if len(w) > 6:
+        ...         words.insert(0, w)
+        ...
+        >>> words
+        ['defenestrate', 'cat', 'window', 'defenestrate']
+                        </code>
+                    </p>
+                </section>
+    
+                <section class="main-section" id="The_range_Function">
+                    <header class="header">The <code class="code1">range</code> Function</header>
+    
+                    <p>
+                            If you do need to iterate over a sequence of numbers,
+                             the built-in function <code class="code1">range()</code> comes in handy. It generates arithmetic progressions:
+                        
+                        <code class="code2">
+        >>> for i in range(5):
+        ...     print(i)
+        ...
+        0
+        1
+        2
+        3
+        4
+                        </code>
+                        The given end point is never part of the generated sequence; <code class="code1">range(10)</code> generates <code class="code1">10</code> values, the legal indices for items of a sequence of length <code class="code1">10</code>. 
+                        It is possible to let the range start at another number,
+                         or to specify a different increment (even negative; sometimes this is called the ‘step’):
+                        
+                        <code class="code2">
+        >>> range(5, 10)
+        5, 6, 7, 8, 9
+            
+        >>> range(0, 10, 3)
+        0, 3, 6, 9
+            
+        >>> range(-10, -100, -30)
+        -10, -40, -70
+                        </code>
+                    </p>
+                </section>
+    
+                <section class="main-section" id="break_and_continue_Statements">
+                    <header class="header">
+                            <code class="code1">break</code> and <code class="code1">continue</code> Statements
+                    </header>
+    
+                    <p>
+                            The break statement, like in <code class="code1">C</code>, breaks out of the innermost enclosing for or <code class="code1">while</code> loop.
+    
+                            Loop statements may have an <code class="code1">else</code> clause; it is executed when the loop terminates through exhaustion 
+                            of the <code class="code1">list</code> (with for) or when the condition becomes <code class="code1">false</code> (with while), but not when the loop is 
+                            terminated by a <code class="code1">break</code> statement. 
+                            This is exemplified by the following loop, which searches for prime numbers:
+                        
+                        <code class="code2">
+        >>> for n in range(2, 10):
+        ...     for x in range(2, n):
+        ...         if n % x == 0:
+        ...             print(n, 'equals', x, '*', n//x)
+        ...             break
+        ...     else:
+        ...         print(n, 'is a prime number')
+        ...
+        2 is a prime number
+        3 is a prime number
+        4 equals 2 * 2
+        5 is a prime number
+        6 equals 2 * 3
+        7 is a prime number
+        8 equals 2 * 4
+        9 equals 3 * 3
+                        </code>
+                    </p>
+    
+    
+                </section>
+    
+                <section class="main-section" id="Defining_Functions">
+                    <header class="header">
+                            Defining Functions
+                    </header>
+    
+                    <p>
+                            The most useful form is to specify a default value for one or more arguments. 
+                            This creates a function that can be called with fewer arguments than it is defined to allow. For example:
+                        <code class="code2">
+        >>> def ask_ok(prompt, retries=4, 
+                        reminder='Please try again!'):
+                while True:
+                    ok = input(prompt)
+                    if ok in ('y', 'ye', 'yes'):
+                        return True
+                    if ok in ('n', 'no', 'nop', 'nope'):
+                        return False
+                    retries = retries - 1
+                    if retries < 0:
+                        raise ValueError('invalid response')
+                    print(reminder)
+                        </code>
+    
+                        This function can be called in several ways:
+    
+                        <ul class="items">
+                            <li>giving only the mandatory argument: ask_ok('want to quit?')</li>
+                            <li>giving one of the optional arguments: ask_ok('overwrite the file?', 2)</li>
+                        </ul>   
+                                
+                                
+                    </p>
+                </section>
+    
+                <section class="main-section" id="Default_Argument_Values">
+                    <header class="header">
+                        Default Argument Values
+                    </header>
+                    
+                    <p>
+                            If you don’t want the default to be shared between subsequent calls, you can write the function like this instead:
+                        
+                        <code class="code2">
+        >>> def f(a, L=None):
+                if L is None:
+                    L = []
+                L.append(a)
+                return L
+                        </code>
+                    </p>
+                </section>
+    
+                <section class="main-section" id="Keyword_Arguments">
+                    <header class="header">
+                            Keyword Arguments
+                    </header>
+                    
+                    <p>
+                            Functions can also be called using keyword arguments of the form <code class="code1">kwarg=value</code>. 
+                            For instance, the following function:
+                        <code class="code2">
+        >>> def parrot(voltage, state='a stiff', action='voom',
+                         type='Norwegian Blue'):
+                print("-- This parrot wouldn't", action, end=' ')
+                print("if you put", voltage, "volts through it.")
+                print("-- Lovely plumage, the", type)
+                print("-- It's", state, "!")
+                        </code>
+                    </p>
+                </section>
+    
+                <section class="main-section" id="Arbitrary_Argument_Lists">
+                    <header class="header">
+                            Arbitrary Argument Lists
+                    </header>
+                    <p>
+                        Finally, the least frequently used option is to specify that a function can be called with an arbitrary number of arguments. These arguments will be wrapped up in a tuple (see Tuples and Sequences). Before the variable number of arguments, zero or more normal arguments may occur.
+    
+                        <code class="code2">
+        >>> def write_multiple_items(file, separator, *args):
+                file.write(separator.join(args))
+                        </code>
+                    </p>
+                </section>
+    
+                <section class="main-section" id="Lambda_Expressions">
+                    <header class="header">Lambda Expressions</header>
+                    <p>
+                            Small anonymous functions can be created with the lambda keyword. 
+                            This function returns the sum of its two arguments: 
+                            <code class="code1">lambda a, b: a+b</code>.
+                            Lambda functions can be used wherever function objects are required.
+                             They are syntactically restricted to a single expression. 
+                             Semantically, they are just syntactic sugar for a normal function definition.
+                              Like nested function definitions, lambda functions can reference variables from 
+                              the containing scope:
+    
+                        <code class="code2">
+        >>> def make_incrementor(n):
+        ...     return lambda x: x + n
+        ...
+        >>> f = make_incrementor(42)
+        >>> f(0)
+        42
+        >>> f(1)
+        43
+                        </code>
+                    </p>   
+                </section>
+    
+                <section class="main-section" id="Documentation_Strings">
+                    <header class="header">Documentation Strings</header>
+                    <p>
+                            Here are some conventions about the content and formatting of documentation strings.
+                        <code class="code2">
+        >>> def my_function():
+        ...     """Do nothing, but document it.
+        ...
+        ...     No, really, it doesn't do anything.
+        ...     """
+        ...     pass
+        ...
+        >>> print(my_function.__doc__)
+        Do nothing, but document it.
+        
+            No, really, it doesn't do anything.
+                        </code>
+                    </p>
+                </section>
+    
+                <section class="main-section" id="Intermezzo_Coding_Style">
+                    <header class="header">Intermezzo Coding Style</header>
+                    <p>
+                            For Python, PEP 8 has emerged as the style guide that most projects adhere to; 
+                            it promotes a very readable and eye-pleasing coding style. 
+                            Every Python developer should read it at some point; 
+                            here are the most important points extracted for you:
+    
+                            <ul class="items">
+                                <li>Use 4-space indentation, and no tabs.</li>
+                                <li>4 spaces are a good compromise between small indentation (allows greater nesting depth) and large indentation (easier to read). Tabs introduce confusion, and are best left out.</li>
+                                <li>Wrap lines so that they don’t exceed 79 characters.</li>
+                                <li>This helps users with small displays and makes it possible to have several code files side-by-side on larger displays.</li>
+                                <li>Use blank lines to separate functions and classes, and larger blocks of code inside functions.</li>    
+                                <li>When possible, put comments on a line of their own.</li>        
+                                <li>Use docstrings.</li>
+                                <li>Use spaces around operators and after commas, but not directly inside bracketing constructs: a = f(1, 2) + g(3, 4).</li>        
+                            </ul>
+    
+                    </p>
+                </section>
+    
+                <section class="main-section" id="Using_Lists_as_Stacks">
+                    <header class="header">
+                        Using Lists as Stacks
+                    </header>
+                    <p>The <code class="code1">list</code> methods make it very easy to use a <code class="code1">list</code> as a <code class="code1">stack</code>, 
+                        where the last element added is the first element retrieved (“last-in, first-out”).
+                         To add an item to the top of the stack, use <code class="code1">apend()</code>.
+                          To retrieve an item from the <code class="code1">top</code> of the <code class="code1">stack</code>, 
+                          use <code class="code1">pop()</code> without an explicit index. For example:
+                        
+                        <code class="code2">
+        >>> stack = [3, 4, 5]
+        >>> stack.append(6)
+        >>> stack.append(7)
+        >>> stack
+        [3, 4, 5, 6, 7]
+        >>> stack.pop()
+        7
+        >>> stack
+        [3, 4, 5, 6]
+        >>> stack.pop()
+        6
+        >>> stack.pop()
+        5
+        >>> stack
+        [3, 4]
+                        </code>
+                    </p>
+                </section>
+    
+                <section class="main-section" id="Using_Lists_as_Queues">
+                    <header class="header">
+                            Using Lists as Queues
+                    </header>
+                    <p>
+                            To implement a queue, 
+                            use <code class="code1">collections.deque</code> which was designed to have fast appends and pops from both ends. For example:
+                        <code class="code2">
+        >>> from collections import deque
+        >>> queue = deque(["Eric", "John", "Michael"])
+        >>> queue.append("Terry")   # Terry arrives
+        >>> queue.append("Graham")  # Graham arrives
+        >>> queue.popleft() # The first to arrive now leaves
+        'Eric'
+        >>> queue.popleft() # The second to arrive now leaves
+        'John'
+        >>> queue  # Remaining queue in order of arrival
+        deque(['Michael', 'Terry', 'Graham'])
+                        </code>
+                    </p>
+                </section>
+    
+                <section class="main-section" id="References">
+                    <header class="header">References</header>
+                    <p>
+                        <ul class="items">
+                            <li>All the documentation in this page is taken from <a class="link" href="https://docs.python.org">Python oficial website</a></li>
+                        </ul>
+                    </p>
+                </section>
+            </div>
+    
+            <footer>
+                    <p>This Documentation page designed by
+                        <a href="https://github.com" target="_blank">Gayatri Shastri</a> &copy; 2020
+                    </p>
+            </footer>
+        </main>
+    
+        <div id="fixed-float">
+            <a href="#main-doc" class="link prevent-default">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    
+        <script>
+    
+            $(document).ready(function () {
+                $(".nav-link, .link").on("click", function (event) {
+                    if (this.hash !== "") {
+                        event.preventDefault();
+    
+                        var _hash = this.hash;
+    
+                        $("html, body").animate({
+                            scrollTop: $(_hash).offset().top
+                        }, 800, function () {
+                            window.location.hash = _hash;
+                        });
+                    }
+                });
+    
+            });
+    
+            $(window).on('scroll', function () {
+                var scrollTop = $(window).scrollTop();
+                $("#fixed-float").css("display", "block");
+    
+                if (scrollTop > 500) {
+                    $("#fixed-float").css("display", "block");
+                } else {
+                    $("#fixed-float").css("display", "none");
+                }
+    
+            });
+    
+            $(function(){
+                $(".nav-link").on("click", function(){
+                    $(".nav-link").each(function(){
+                        $(this).css("box-shadow","none");
+                        $(this).css("background-color","transparent");
+                        $(this).removeClass("active");
+                        $(this).css("color","#aaaaaa");
+                    });
+    
+                    $(this).css("box-shadow","inset 6px 0px 0 0 rgb(124, 134, 154)");
+                    $(this).css("background-color","rgba(25, 32, 45, 0.8)");
+                    $(this).css("color","#eee");
+                    $(this).addClass("active");
+                });
+            });
+        </script>
+    </body>
+    
+
+
+</html>
